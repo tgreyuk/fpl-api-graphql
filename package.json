@@ -1,9 +1,12 @@
 {
-  "name": "fpl-graphqlify",
-  "version": "1.0.0",
-  "description": "",
+  "name": "fpl-api-graphql",
+  "version": "0.0.1",
+  "description": "A GraphQL node wrapper for the Fantasy Premier League (fantasy.premierleague.com) REST apis.",
   "main": "dist/index.js",
   "typings": "dist/index",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "demo": "npm run prepublishOnly && node demo.js",
     "lint": "tslint --project tsconfig.json",
@@ -14,14 +17,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tgreyuk/fpl-graphqlify.git"
+    "url": "git+https://github.com/tgreyuk/fpl-api-graphql.git"
   },
   "author": "Thomas Grey",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tgreyuk/fpl-graphqlify/issues"
+    "url": "https://github.com/tgreyuk/fpl-api-graphql/issues"
   },
-  "homepage": "https://github.com/tgreyuk/fpl-graphqlify#readme",
+  "homepage": "https://github.com/tgreyuk/fpl-api-graphql#readme",
+  "keywords": [
+    "fpl",
+    "api",
+    "graphql"
+  ],
   "devDependencies": {
     "@types/chalk": "^2.2.0",
     "@types/fs-extra": "^5.0.4",
