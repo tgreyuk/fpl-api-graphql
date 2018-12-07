@@ -56,7 +56,6 @@ const dataLoader = new DataLoader(keys => {
   return axios.all(
     keys.map((key: string) => {
       return axios.get(key).then(response => {
-        console.log(`[fpl-graphql] ${key}`);
         return humps.camelizeKeys(response.data);
       });
     }),
