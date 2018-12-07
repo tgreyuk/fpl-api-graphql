@@ -1,14 +1,16 @@
-# fpl-graphql
+# fpl-api-graphql
 
 A GraphQL node wrapper for the Fantasy Premier League (fantasy.premierleague.com) REST apis.
 
-### Installation
+[![npm](https://img.shields.io/npm/v/fpl-api-graphql.svg)](https://www.npmjs.com/package/fpl-api-graphql)
+
+## Installation
 
 ```js
 npm install fpl-graphql --save
 ```
 
-### Usage
+## Usage
 
 The package exposes GraphQL type definitions and resolvers.
 
@@ -18,7 +20,7 @@ const { typeDefs, resolvers } = require('fpl-graphql');
 
 There are no assumptions about how this should be consumed. If serving over http this would typically be with either [express-graphql](https://github.com/graphql/express-graphql) or [apollo-server](https://github.com/apollographql/apollo-server).
 
-### Example
+## Example
 
 This example uses express-graphql to serve and graphql-tools to build an executable schema.
 
