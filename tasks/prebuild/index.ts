@@ -34,13 +34,26 @@ Promise.all([
 );
 
 const buildRoot = './build';
+const fixturesDir = `${buildRoot}/fixtures`;
+const schemaDir = `${buildRoot}/json-schemas`;
 
 async function write(name, data) {
-  const fixturePath = `${buildRoot}/fixtures/${name}.data.json`;
+  if (!fs.existsSync(buildRoot)) {
+    fs.mkdirSync(buildRoot);
+  }
+
+  if (!fs.existsSync(fixturesDir)) {
+    fs.mkdirSync(fixturesDir);
+  }
+
+  if (!fs.existsSync(schemaDir)) {
+    fs.mkdirSync(schemaDir);
+  }
+  const fixturePath = `${fixturesDir}/${name}.data.json`;
   jsosnfile.writeFileSync(fixturePath, humps.camelizeKeys(data));
   console.log(chalk.green(`[task:prepbuild] writing fixture ${fixturePath}`));
 
-  const schemaPath = `${buildRoot}/json-schemas/${name}.schema.json`;
+  const schemaPath = `${schemaDir}/${name}.schema.json`;
   const schema = schemify(humps.camelizeKeys(data));
   jsosnfile.writeFileSync(schemaPath, schema, {
     spaces: 2,
