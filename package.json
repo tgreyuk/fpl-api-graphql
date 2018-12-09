@@ -1,6 +1,6 @@
 {
   "name": "fpl-api-graphql",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A GraphQL node wrapper for the Fantasy Premier League (fantasy.premierleague.com) REST apis.",
   "main": "dist/index.js",
   "typings": "dist/index",
