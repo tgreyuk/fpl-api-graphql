@@ -4,6 +4,7 @@ import {
   entryPicksLoader,
   entryTransfersLoader,
   eventLiveLoader,
+  leagueClassicLoader,
 } from './dataloaders';
 
 export const resolvers = {
@@ -40,6 +41,12 @@ export const resolvers = {
         chips: response.chips,
         season: response.season,
         leagues: response.leagues,
+      };
+    },
+    async leagueClassic(obj, args, context) {
+      const response = await leagueClassicLoader(args.id);
+      return {
+        ...response
       };
     },
   },

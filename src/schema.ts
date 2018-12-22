@@ -247,6 +247,60 @@ type Event {
   isNext: Boolean
 }
 
+type LeagueClassic {
+  newEntries: LeagueClassicNewEntries
+  league: LeagueClassicLeague
+  standings: LeagueClassicStandings
+  updateStatus: Float
+}
+
+type LeagueClassicLeague {
+  id: Float
+  leaguebanSet: [String]
+  name: String
+  shortName: String
+  created: String
+  closed: Boolean
+  forumDisabled: Boolean
+  makeCodePublic: Boolean
+  rank: String
+  size: String
+  leagueType: String
+  scoring: String
+  reprocessStandings: Boolean
+  adminEntry: String
+  startEvent: Float
+}
+
+type LeagueClassicNewEntries {
+  hasNext: Boolean
+  number: Float
+  results: [String]
+}
+
+type LeagueClassicStandings {
+  hasNext: Boolean
+  number: Float
+  results: [LeagueClassicStandingsResult]
+}
+
+type LeagueClassicStandingsResult {
+  id: Float
+  entryName: String
+  eventTotal: Float
+  playerName: String
+  movement: String
+  ownEntry: Boolean
+  rank: Float
+  lastRank: Float
+  rankSort: Float
+  total: Float
+  entry: Float
+  league: Float
+  startEvent: Float
+  stopEvent: Float
+}
+
 type Query {
   currentEvent: Int
   totalPlayers: Int
@@ -255,6 +309,7 @@ type Query {
   teams: [Team]
   elementTypes: [ElementType]
   entry(id: Int): Entry
+  leagueClassic(id: Int): LeagueClassic
 }
 
 type Team {
