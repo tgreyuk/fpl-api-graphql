@@ -6,6 +6,7 @@ import { EntryPicks } from '../interfaces/entry-picks.interface';
 import { EntryTransfers } from '../interfaces/entry-transfers.interface';
 import { Entry } from '../interfaces/entry.interface';
 import { EventLive } from '../interfaces/event-live.interface';
+import { LeaguesClassicStandings } from '../interfaces/leagues-classic-standings.interface';
 
 /**
  * Hooks into available fpl endpoints.
@@ -50,6 +51,10 @@ export function eventLiveLoader(entry: Entry): Promise<EventLive[]> {
     return `/event/${item.event}/live`;
   });
   return dataLoader.loadMany(keys);
+}
+
+export function leagueClassicLoader(id): Promise<LeaguesClassicStandings> {
+  return dataLoader.load(`/leagues-classic-standings/${id}`);
 }
 
 const dataLoader = new DataLoader(keys => {
