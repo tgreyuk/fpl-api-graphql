@@ -48,11 +48,19 @@ Promise.all([
             id: { type: GraphQLInt },
           },
         },
-        leagueClassic: {
-          type: buildSchema(leagueClassic, 'LeagueClassic'),
-          args:{
-            id: {type: GraphQLInt}
-          }
+        leagues: {
+          type: new GraphQLObjectType({
+            name: 'Leagues',
+            fields: {
+              classic: {
+                type: buildSchema(leagueClassic, 'LeagueClassic'),
+                args: {
+                  id: { type: GraphQLInt },
+                  page: { type: GraphQLInt },
+                },
+              },
+            },
+          }),
         },
       },
     }),
@@ -66,7 +74,6 @@ Promise.all([
 
 function buildSchema(response: any, name: string) {
   const jsonSchema = schemify(response);
-  // write(name, jsonSchema, response);
   return parse(name, jsonSchema);
 }
 
@@ -107,7 +114,6 @@ function buildManagerSchema(
     transfers,
   };
   const jsonSchema = schemify(parsedJson);
-  // write(name, jsonSchema, parsedJson);
   return parse(name, jsonSchema);
 }
 

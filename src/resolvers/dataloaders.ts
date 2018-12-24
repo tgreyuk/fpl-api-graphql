@@ -53,8 +53,8 @@ export function eventLiveLoader(entry: Entry): Promise<EventLive[]> {
   return dataLoader.loadMany(keys);
 }
 
-export function leagueClassicLoader(id): Promise<LeaguesClassicStandings> {
-  return dataLoader.load(`/leagues-classic-standings/${id}`);
+export function leagueClassicLoader(id, pageNumber): Promise<LeaguesClassicStandings> {
+  return dataLoader.load(`/leagues-classic-standings/${id}?ls-page=${pageNumber}`);
 }
 
 const dataLoader = new DataLoader(keys => {

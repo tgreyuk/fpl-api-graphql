@@ -301,6 +301,10 @@ type LeagueClassicStandingsResult {
   stopEvent: Float
 }
 
+type Leagues {
+  classic(id: Int, page: Int): LeagueClassic
+}
+
 type Query {
   currentEvent: Int
   totalPlayers: Int
@@ -309,7 +313,7 @@ type Query {
   teams: [Team]
   elementTypes: [ElementType]
   entry(id: Int): Entry
-  leagueClassic(id: Int): LeagueClassic
+  leagues: Leagues
 }
 
 type Team {

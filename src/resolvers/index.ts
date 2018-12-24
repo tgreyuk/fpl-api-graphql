@@ -1,11 +1,4 @@
-import {
-  bootstrapLoader,
-  entryLoader,
-  entryPicksLoader,
-  entryTransfersLoader,
-  eventLiveLoader,
-  leagueClassicLoader,
-} from './dataloaders';
+import { bootstrapLoader, entryLoader, entryPicksLoader, entryTransfersLoader, eventLiveLoader, leagueClassicLoader } from './dataloaders';
 
 export const resolvers = {
   Query: {
@@ -43,11 +36,14 @@ export const resolvers = {
         leagues: response.leagues,
       };
     },
-    async leagueClassic(obj, args, context) {
-      const response = await leagueClassicLoader(args.id);
-      return {
-        ...response
-      };
+    async leagues(obj, args, context) {
+      return true;
+    },
+  },
+  Leagues: {
+    async classic(obj, args, context) {
+      const response = await leagueClassicLoader(args.id, args.page);
+      return response;
     },
   },
   Entry: {
