@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as DataLoader from 'dataloader';
 import * as humps from 'humps';
 import { BootstrapStatic } from '../interfaces/bootstrap-static.interface';
+import { ElementSummary } from '../interfaces/element-summary.interface';
 import { EntryPicks } from '../interfaces/entry-picks.interface';
 import { EntryTransfers } from '../interfaces/entry-transfers.interface';
 import { Entry } from '../interfaces/entry.interface';
@@ -18,6 +19,7 @@ import { LeaguesClassicStandings } from '../interfaces/leagues-classic-standings
  * https://fantasy.premierleague.com/drf/entry/${id}/transfers
  * https://fantasy.premierleague.com/drf/teams
  * https://fantasy.premierleague.com/drf/elements
+ * https://fantasy.premierleague.com/drf/element-summary/${id}
  * https://fantasy.premierleague.com/drf/events
  * https://fantasy.premierleague.com/drf/game-settings
  * https://fantasy.premierleague.com/drf/event/${event}/live
@@ -29,6 +31,10 @@ axios.defaults.baseURL = 'https://fantasy.premierleague.com/drf';
 
 export function bootstrapLoader(): Promise<BootstrapStatic> {
   return dataLoader.load(`/bootstrap-static`);
+}
+
+export function elementSummaryLoader(id): Promise<ElementSummary> {
+  return dataLoader.load(`/element-summary/${id}`);
 }
 
 export function entryLoader(id): Promise<Entry> {

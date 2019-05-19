@@ -19,7 +19,8 @@ Promise.all([
   jsonfile.readFileSync(`${fixturesRoot}/entry-transfers.data.json`),
   jsonfile.readFileSync(`${fixturesRoot}/event-live.data.json`),
   jsonfile.readFileSync(`${fixturesRoot}/leagues-classic-standings.data.json`),
-]).then(([bootstrapstatic, entry, entryPicks, entryTransfers, eventLive, leagueClassic]) => {
+  jsonfile.readFileSync(`${fixturesRoot}/element-summary.data.json`),
+]).then(([bootstrapstatic, entry, entryPicks, entryTransfers, eventLive, leagueClassic, elementSummary]) => {
   const schema = new GraphQLSchema({
     query: new GraphQLObjectType({
       name: 'Query',
@@ -44,6 +45,12 @@ Promise.all([
         },
         entry: {
           type: buildManagerSchema(entry, entryPicks, eventLive, entryTransfers, 'Entry'),
+          args: {
+            id: { type: GraphQLInt },
+          },
+        },
+        elementSummary: {
+          type: buildSchema(elementSummary, 'ElementSummary'),
           args: {
             id: { type: GraphQLInt },
           },

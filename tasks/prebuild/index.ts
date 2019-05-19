@@ -15,6 +15,7 @@ Promise.all([
   axios.get('/entry/2762616/transfers'),
   axios.get('/event/1/live'),
   axios.get('/leagues-classic-standings/313'),
+  axios.get('/element-summary/1'),
 ]).then(
   async ([
     bootstrapstatic,
@@ -23,6 +24,7 @@ Promise.all([
     entryTransfers,
     eventLive,
     leaguesClassicStandings,
+    elementSummary,
   ]) => {
     write('bootstrap-static', bootstrapstatic.data);
     write('entry', entry.data);
@@ -30,6 +32,7 @@ Promise.all([
     write('entry-transfers', entryTransfers.data);
     write('event-live', eventLive.data);
     write('leagues-classic-standings', leaguesClassicStandings.data);
+    write('element-summary', elementSummary.data);
   },
 );
 

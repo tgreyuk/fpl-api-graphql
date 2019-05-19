@@ -1,4 +1,12 @@
-import { bootstrapLoader, entryLoader, entryPicksLoader, entryTransfersLoader, eventLiveLoader, leagueClassicLoader } from './dataloaders';
+import {
+  bootstrapLoader,
+  elementSummaryLoader,
+  entryLoader,
+  entryPicksLoader,
+  entryTransfersLoader,
+  eventLiveLoader,
+  leagueClassicLoader,
+} from './dataloaders';
 
 export const resolvers = {
   Query: {
@@ -13,6 +21,10 @@ export const resolvers = {
     async elements() {
       const bootstrap = await bootstrapLoader();
       return bootstrap.elements;
+    },
+    async elementSummary(obj, args) {
+      const response = await elementSummaryLoader(args.id);
+      return response;
     },
     async teams() {
       const bootstrap = await bootstrapLoader();

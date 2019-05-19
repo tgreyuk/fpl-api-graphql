@@ -60,6 +60,189 @@ type Element {
   team: Float
 }
 
+type ElementSummary {
+  historyPast: [ElementSummaryHistoryPast]
+  fixturesSummary: [String]
+  explain: [ElementSummaryExplain]
+  historySummary: [ElementSummaryHistorySummary]
+  fixtures: [String]
+  history: [ElementSummaryHistory]
+}
+
+type ElementSummaryExplain {
+  explain: ElementSummaryExplainExplain
+  fixture: ElementSummaryExplainFixture
+}
+
+type ElementSummaryExplainExplain {
+  points: Float
+  name: String
+  value: Float
+}
+
+type ElementSummaryExplainFixture {
+  id: Float
+  kickoffTimeFormatted: String
+  started: Boolean
+  eventDay: Float
+  deadlineTime: String
+  deadlineTimeFormatted: String
+  stats: [String]
+  code: Float
+  kickoffTime: String
+  teamHScore: Float
+  teamAScore: Float
+  finished: Boolean
+  minutes: Float
+  provisionalStartTime: Boolean
+  finishedProvisional: Boolean
+  event: Float
+  teamA: Float
+  teamH: Float
+}
+
+type ElementSummaryHistory {
+  id: Float
+  kickoffTime: String
+  kickoffTimeFormatted: String
+  teamHScore: Float
+  teamAScore: Float
+  wasHome: Boolean
+  round: Float
+  totalPoints: Float
+  value: Float
+  transfersBalance: Float
+  selected: Float
+  transfersIn: Float
+  transfersOut: Float
+  loanedIn: Float
+  loanedOut: Float
+  minutes: Float
+  goalsScored: Float
+  assists: Float
+  cleanSheets: Float
+  goalsConceded: Float
+  ownGoals: Float
+  penaltiesSaved: Float
+  penaltiesMissed: Float
+  yellowCards: Float
+  redCards: Float
+  saves: Float
+  bonus: Float
+  bps: Float
+  influence: String
+  creativity: String
+  threat: String
+  ictIndex: String
+  eaIndex: Float
+  openPlayCrosses: Float
+  bigChancesCreated: Float
+  clearancesBlocksInterceptions: Float
+  recoveries: Float
+  keyPasses: Float
+  tackles: Float
+  winningGoals: Float
+  attemptedPasses: Float
+  completedPasses: Float
+  penaltiesConceded: Float
+  bigChancesMissed: Float
+  errorsLeadingToGoal: Float
+  errorsLeadingToGoalAttempt: Float
+  tackled: Float
+  offside: Float
+  targetMissed: Float
+  fouls: Float
+  dribbles: Float
+  element: Float
+  fixture: Float
+  opponentTeam: Float
+}
+
+type ElementSummaryHistoryPast {
+  id: Float
+  seasonName: String
+  elementCode: Float
+  startCost: Float
+  endCost: Float
+  totalPoints: Float
+  minutes: Float
+  goalsScored: Float
+  assists: Float
+  cleanSheets: Float
+  goalsConceded: Float
+  ownGoals: Float
+  penaltiesSaved: Float
+  penaltiesMissed: Float
+  yellowCards: Float
+  redCards: Float
+  saves: Float
+  bonus: Float
+  bps: Float
+  influence: String
+  creativity: String
+  threat: String
+  ictIndex: String
+  eaIndex: Float
+  season: Float
+}
+
+type ElementSummaryHistorySummary {
+  id: Float
+  kickoffTime: String
+  kickoffTimeFormatted: String
+  teamHScore: Float
+  teamAScore: Float
+  wasHome: Boolean
+  round: Float
+  totalPoints: Float
+  value: Float
+  transfersBalance: Float
+  selected: Float
+  transfersIn: Float
+  transfersOut: Float
+  loanedIn: Float
+  loanedOut: Float
+  minutes: Float
+  goalsScored: Float
+  assists: Float
+  cleanSheets: Float
+  goalsConceded: Float
+  ownGoals: Float
+  penaltiesSaved: Float
+  penaltiesMissed: Float
+  yellowCards: Float
+  redCards: Float
+  saves: Float
+  bonus: Float
+  bps: Float
+  influence: String
+  creativity: String
+  threat: String
+  ictIndex: String
+  eaIndex: Float
+  openPlayCrosses: Float
+  bigChancesCreated: Float
+  clearancesBlocksInterceptions: Float
+  recoveries: Float
+  keyPasses: Float
+  tackles: Float
+  winningGoals: Float
+  attemptedPasses: Float
+  completedPasses: Float
+  penaltiesConceded: Float
+  bigChancesMissed: Float
+  errorsLeadingToGoal: Float
+  errorsLeadingToGoalAttempt: Float
+  tackled: Float
+  offside: Float
+  targetMissed: Float
+  fouls: Float
+  dribbles: Float
+  element: Float
+  fixture: Float
+  opponentTeam: Float
+}
+
 type ElementType {
   id: Float
   singularName: String
@@ -237,11 +420,11 @@ type Event {
   averageEntryScore: Float
   finished: Boolean
   dataChecked: Boolean
-  highestScoringEntry: String
+  highestScoringEntry: Float
   deadlineTimeEpoch: Float
   deadlineTimeGameOffset: Float
   deadlineTimeFormatted: String
-  highestScore: String
+  highestScore: Float
   isPrevious: Boolean
   isCurrent: Boolean
   isNext: Boolean
@@ -313,13 +496,14 @@ type Query {
   teams: [Team]
   elementTypes: [ElementType]
   entry(id: Int): Entry
+  elementSummary(id: Int): ElementSummary
   leagues: Leagues
 }
 
 type Team {
   id: Float
   currentEventFixture: [TeamCurrentEventFixture]
-  nextEventFixture: [TeamNextEventFixture]
+  nextEventFixture: [String]
   name: String
   code: Float
   shortName: String
@@ -343,15 +527,6 @@ type Team {
 }
 
 type TeamCurrentEventFixture {
-  isHome: Boolean
-  day: Float
-  eventDay: Float
-  month: Float
-  id: Float
-  opponent: Float
-}
-
-type TeamNextEventFixture {
   isHome: Boolean
   day: Float
   eventDay: Float
