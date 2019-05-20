@@ -6,7 +6,7 @@ A GraphQL node wrapper for the Fantasy Premier League (fantasy.premierleague.com
 
 ## Installation
 
-```js
+```bash
 npm install fpl-api-graphql --save
 ```
 
@@ -20,13 +20,26 @@ const { typeDefs, resolvers } = require('fpl-api-graphql');
 
 There are no assumptions about how this should be consumed. If serving over http this would typically be with either [express-graphql](https://github.com/graphql/express-graphql) or [apollo-server](https://github.com/apollographql/apollo-server).
 
-## Example
+## Example / Demo
 
-This example uses express-graphql to serve and graphql-tools to build an executable schema.
+This example uses [express-graphql](https://github.com/graphql/express-graphql) to serve and [graphql-tools](https://github.com/apollographql/graphql-tools) to build an executable schema.
 
-The GraphQL server will be available at ht&#8203;tp://localhost:3000/graphql.
+### Preview
 
-[GraphiQL](https://github.com/graphql/graphiql) will be exposed at ht&#8203;tp://localhost:3000/graphiql where the api can be examined with this powerful GraphQL IDE.
+To run this example locally, clone the repo and run the demo:
+
+```bash
+git clone https://github.com/tgreyuk/fpl-api-graphql
+
+npm install
+
+npm run demo
+```
+
+
+The GraphQL server will be available at http://localhost:3000/graphql and the [GraphiQL](https://github.com/graphql/graphiql) IDE will also be available in the browser.
+
+### Code
 
 ```js
 const express = require('express');
@@ -54,3 +67,8 @@ app.listen(3000, () => {
   console.log(`express-graphql demo running on port 3000`);
 });
 ```
+
+## TODO
+
+* More documentation
+* Unit tests
