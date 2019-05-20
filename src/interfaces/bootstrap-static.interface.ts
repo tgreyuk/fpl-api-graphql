@@ -51,7 +51,7 @@ export interface BootstrapStatic {
     eventPoints?: number;
     pointsPerGame?: string;
     epThis?: string;
-    epNext?: string;
+    epNext?: string | null;
     special?: boolean;
     minutes?: number;
     goalsScored?: number;
@@ -255,15 +255,7 @@ export interface BootstrapStatic {
       opponent?: number;
       [k: string]: any;
     }[];
-    nextEventFixture?: {
-      isHome?: boolean;
-      day?: number;
-      eventDay?: number;
-      month?: number;
-      id?: number;
-      opponent?: number;
-      [k: string]: any;
-    }[];
+    nextEventFixture?: any[];
     name?: string;
     code?: number;
     shortName?: string;
@@ -300,27 +292,7 @@ export interface BootstrapStatic {
     key?: string;
     [k: string]: any;
   }[];
-  nextEventFixtures?: {
-    id?: number;
-    kickoffTimeFormatted?: string;
-    started?: boolean;
-    eventDay?: number;
-    deadlineTime?: string;
-    deadlineTimeFormatted?: string;
-    stats?: any[];
-    code?: number;
-    kickoffTime?: string;
-    teamHScore?: null;
-    teamAScore?: null;
-    finished?: boolean;
-    minutes?: number;
-    provisionalStartTime?: boolean;
-    finishedProvisional?: boolean;
-    event?: number;
-    teamA?: number;
-    teamH?: number;
-    [k: string]: any;
-  }[];
+  nextEventFixtures?: any[];
   events?: {
     id?: number;
     name?: string;
@@ -328,16 +300,16 @@ export interface BootstrapStatic {
     averageEntryScore?: number;
     finished?: boolean;
     dataChecked?: boolean;
-    highestScoringEntry?: number | null;
+    highestScoringEntry?: number;
     deadlineTimeEpoch?: number;
     deadlineTimeGameOffset?: number;
     deadlineTimeFormatted?: string;
-    highestScore?: number | null;
+    highestScore?: number;
     isPrevious?: boolean;
     isCurrent?: boolean;
     isNext?: boolean;
     [k: string]: any;
   }[];
-  nextEvent?: number;
+  nextEvent?: null;
   [k: string]: any;
 }
