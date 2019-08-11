@@ -1,5 +1,11 @@
 import { startCase } from 'lodash';
 
 export function getTypeName(name: string) {
-  return startCase(name).replace(/\s/g, '');
+  let typeName = startCase(name).replace(/\s/g, '');
+
+  if (typeName !== 'Static') {
+    typeName = typeName.replace(/Static/g, '');
+  }
+
+  return typeName;
 }

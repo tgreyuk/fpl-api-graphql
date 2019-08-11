@@ -6,52 +6,5 @@
  */
 
 export interface LeaguesClassicStandings {
-  newEntries?: {
-    hasNext?: boolean;
-    number?: number;
-    results?: any[];
-    [k: string]: any;
-  };
-  league?: {
-    id?: number;
-    leaguebanSet?: any[];
-    name?: string;
-    shortName?: string;
-    created?: string;
-    closed?: boolean;
-    forumDisabled?: boolean;
-    makeCodePublic?: boolean;
-    rank?: null;
-    size?: null;
-    leagueType?: string;
-    scoring?: string;
-    reprocessStandings?: boolean;
-    adminEntry?: null;
-    startEvent?: number;
-    [k: string]: any;
-  };
-  standings?: {
-    hasNext?: boolean;
-    number?: number;
-    results?: {
-      id?: number;
-      entryName?: string;
-      eventTotal?: number;
-      playerName?: string;
-      movement?: string;
-      ownEntry?: boolean;
-      rank?: number;
-      lastRank?: number;
-      rankSort?: number;
-      total?: number;
-      entry?: number;
-      league?: number;
-      startEvent?: number;
-      stopEvent?: number;
-      [k: string]: any;
-    }[];
-    [k: string]: any;
-  };
-  updateStatus?: number;
   [k: string]: any;
 }

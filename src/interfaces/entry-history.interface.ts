@@ -5,16 +5,8 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface EntryPicks {
-  active_chip?: null;
-  automatic_subs?: {
-    entry?: number;
-    element_in?: number;
-    element_out?: number;
-    event?: number;
-    [k: string]: any;
-  }[];
-  entry_history?: {
+export interface EntryHistory {
+  current?: {
     event?: number;
     points?: number;
     total_points?: number;
@@ -27,14 +19,13 @@ export interface EntryPicks {
     event_transfers_cost?: number;
     points_on_bench?: number;
     [k: string]: any;
-  };
-  picks?: {
-    element?: number;
-    position?: number;
-    multiplier?: number;
-    is_captain?: boolean;
-    is_vice_captain?: boolean;
+  }[];
+  past?: {
+    season_name?: string;
+    total_points?: number;
+    rank?: number;
     [k: string]: any;
   }[];
+  chips?: any[];
   [k: string]: any;
 }

@@ -1,4 +1,14 @@
-export const typeDefs = `
+type BootstrapStatic {
+  events: [Event]
+  game_settings: GameSettings
+  phases: [Phase]
+  teams: [Team]
+  total_players: Float
+  elements: [Element]
+  element_stats: [ElementStat]
+  element_types: [ElementType]
+}
+
 type Element {
   chance_of_playing_next_round: String
   chance_of_playing_this_round: String
@@ -291,24 +301,28 @@ type EventChipPlay {
   num_played: Float
 }
 
-type EventElement {
+type EventLive {
+  elements: [EventLiveElement]
+}
+
+type EventLiveElement {
   id: Float
-  stats: EventElementStats
-  explain: [EventElementExplain]
+  stats: EventLiveElementStats
+  explain: [EventLiveElementExplain]
 }
 
-type EventElementExplain {
+type EventLiveElementExplain {
   fixture: Float
-  stats: [EventElementExplainStat]
+  stats: [EventLiveElementExplainStat]
 }
 
-type EventElementExplainStat {
+type EventLiveElementExplainStat {
   identifier: String
   points: Float
   value: Float
 }
 
-type EventElementStats {
+type EventLiveElementStats {
   minutes: Float
   goals_scored: Float
   assists: Float
@@ -363,21 +377,10 @@ type Phase {
 }
 
 type Query {
-  static: Static
+  bootstrapStatic: BootstrapStatic
   entry(id: Int): Entry
-  eventElements(event: Int): [EventElement]
+  event(event: Int): EventLive
   elementSummary(id: Int): ElementSummary
-}
-
-type Static {
-  events: [Event]
-  game_settings: GameSettings
-  phases: [Phase]
-  teams: [Team]
-  total_players: Float
-  elements: [Element]
-  element_stats: [ElementStat]
-  element_types: [ElementType]
 }
 
 type Team {
@@ -402,4 +405,3 @@ type Team {
   strength_defence_home: Float
   strength_defence_away: Float
 }
-`;

@@ -1,0 +1,3 @@
+disableLanguages": ['hbs', 'handlebars']
+singleQuote: true
+trailingComma: all

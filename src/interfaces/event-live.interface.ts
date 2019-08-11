@@ -6,120 +6,41 @@
  */
 
 export interface EventLive {
-  fixtures?: {
-    id?: number;
-    kickoffTimeFormatted?: string;
-    started?: boolean;
-    eventDay?: number;
-    deadlineTime?: string;
-    deadlineTimeFormatted?: string;
-    stats?: (
-      | {
-          /**
-           * This interface was referenced by `undefined`'s JSON-Schema definition
-           * via the `patternProperty` "^(+)+$".
-           */
-          [k: string]: {
-            a?: {
-              value?: number;
-              element?: number;
-              [k: string]: any;
-            }[];
-            h?: {
-              value?: number;
-              element?: number;
-              [k: string]: any;
-            }[];
-            [k: string]: any;
-          };
-        }
-      | {
-          /**
-           * This interface was referenced by `undefined`'s JSON-Schema definition
-           * via the `patternProperty` "^(+)+$".
-           */
-          [k: string]: {
-            /**
-             * This interface was referenced by `undefined`'s JSON-Schema definition
-             * via the `patternProperty` "^(+)+$".
-             */
-            [k: string]: any[];
-          };
-        }
-      | {
-          /**
-           * This interface was referenced by `undefined`'s JSON-Schema definition
-           * via the `patternProperty` "^(+)+$".
-           */
-          [k: string]: {
-            /**
-             * This interface was referenced by `undefined`'s JSON-Schema definition
-             * via the `patternProperty` "^(+)+$".
-             */
-            [k: string]: {
-              value?: number;
-              element?: number;
-              [k: string]: any;
-            }[];
-          };
-        })[];
-    code?: number;
-    kickoffTime?: string;
-    teamHScore?: number;
-    teamAScore?: number;
-    finished?: boolean;
-    minutes?: number;
-    provisionalStartTime?: boolean;
-    finishedProvisional?: boolean;
-    event?: number;
-    teamA?: number;
-    teamH?: number;
-    [k: string]: any;
-  }[];
   elements?: {
-    /**
-     * This interface was referenced by `undefined`'s JSON-Schema definition
-     * via the `patternProperty` "^(+)+$".
-     */
-    [k: string]: {
-      explain?: (
-        | {
-            /**
-             * This interface was referenced by `undefined`'s JSON-Schema definition
-             * via the `patternProperty` "^(+)+$".
-             */
-            [k: string]: {
-              points?: number;
-              name?: string;
-              value?: number;
-              [k: string]: any;
-            };
-          }
-        | number)[][];
-      stats?: {
-        yellowCards?: number;
-        ownGoals?: number;
-        creativity?: number;
-        goalsConceded?: number;
-        bonus?: number;
-        redCards?: number;
-        saves?: number;
-        influence?: number;
-        bps?: number;
-        cleanSheets?: number;
-        assists?: number;
-        ictIndex?: number;
-        goalsScored?: number;
-        threat?: number;
-        penaltiesMissed?: number;
-        totalPoints?: number;
-        penaltiesSaved?: number;
-        inDreamteam?: boolean;
-        minutes?: number;
-        [k: string]: any;
-      };
+    id?: number;
+    stats?: {
+      minutes?: number;
+      goals_scored?: number;
+      assists?: number;
+      clean_sheets?: number;
+      goals_conceded?: number;
+      own_goals?: number;
+      penalties_saved?: number;
+      penalties_missed?: number;
+      yellow_cards?: number;
+      red_cards?: number;
+      saves?: number;
+      bonus?: number;
+      bps?: number;
+      influence?: string;
+      creativity?: string;
+      threat?: string;
+      ict_index?: string;
+      total_points?: number;
+      in_dreamteam?: boolean;
       [k: string]: any;
     };
-  };
+    explain?: {
+      fixture?: number;
+      stats?: {
+        identifier?: string;
+        points?: number;
+        value?: number;
+        [k: string]: any;
+      }[];
+      [k: string]: any;
+    }[];
+    [k: string]: any;
+  }[];
   [k: string]: any;
 }
