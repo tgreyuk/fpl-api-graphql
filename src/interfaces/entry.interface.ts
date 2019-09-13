@@ -19,7 +19,7 @@ export interface Entry {
   summary_overall_points?: number;
   summary_overall_rank?: number;
   summary_event_points?: number;
-  summary_event_rank?: null;
+  summary_event_rank?: number;
   current_event?: number;
   leagues?: {
     classic?: {
@@ -46,5 +46,8 @@ export interface Entry {
   };
   name?: string;
   kit?: null;
+  last_deadline_bank?: number;
+  last_deadline_value?: number;
+  last_deadline_total_transfers?: number;
   [k: string]: any;
 }

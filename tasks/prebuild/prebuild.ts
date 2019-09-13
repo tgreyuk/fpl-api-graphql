@@ -8,12 +8,12 @@ import * as jsosnfile from 'jsonfile';
 axios.defaults.baseURL = 'https://fantasy.premierleague.com/api';
 
 Promise.all([
-  axios.get('/bootstrap-static'),
-  axios.get('/entry/3514308'),
-  axios.get('/entry/3514308/history'),
-  axios.get(`/entry/3514308/event/1/picks`),
-  axios.get('/element-summary/1'),
-  axios.get('/event/1/live'),
+  axios.get('/bootstrap-static/'),
+  axios.get('/entry/3514308/'),
+  axios.get('/entry/3514308/history/'),
+  axios.get(`/entry/3514308/event/1/picks/`),
+  axios.get('/element-summary/1/'),
+  axios.get('/event/1/live/'),
 ]).then(
   async ([
     bootstrapstatic,

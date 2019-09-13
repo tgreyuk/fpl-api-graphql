@@ -10,8 +10,8 @@ export interface EntryHistory {
     event?: number;
     points?: number;
     total_points?: number;
-    rank?: null;
-    rank_sort?: null;
+    rank?: number;
+    rank_sort?: number;
     overall_rank?: number;
     bank?: number;
     value?: number;

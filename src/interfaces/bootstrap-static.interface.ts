@@ -13,10 +13,10 @@ export interface BootstrapStatic {
     average_entry_score?: number;
     finished?: boolean;
     data_checked?: boolean;
-    highest_scoring_entry?: null;
+    highest_scoring_entry?: number | null;
     deadline_time_epoch?: number;
     deadline_time_game_offset?: number;
-    highest_score?: null;
+    highest_score?: number | null;
     is_previous?: boolean;
     is_current?: boolean;
     is_next?: boolean;
@@ -28,6 +28,11 @@ export interface BootstrapStatic {
     most_selected?: number | null;
     most_transferred_in?: number | null;
     top_element?: number | null;
+    top_element_info?: {
+      id?: number;
+      points?: number;
+      [k: string]: any;
+    };
     transfers_made?: number;
     most_captained?: number | null;
     most_vice_captained?: number | null;

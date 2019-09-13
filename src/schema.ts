@@ -168,11 +168,14 @@ type Entry {
   summary_overall_points: Float
   summary_overall_rank: Float
   summary_event_points: Float
-  summary_event_rank: String
+  summary_event_rank: Float
   current_event: Float
   leagues: EntryLeagues
   name: String
   kit: String
+  last_deadline_bank: Float
+  last_deadline_value: Float
+  last_deadline_total_transfers: Float
   history(event: Int): EntryHistory
   picks(event: Int): EntryPicks
 }
@@ -187,8 +190,8 @@ type EntryHistoryCurrent {
   event: Float
   points: Float
   total_points: Float
-  rank: String
-  rank_sort: String
+  rank: Float
+  rank_sort: Float
   overall_rank: Float
   bank: Float
   value: Float
@@ -245,8 +248,8 @@ type EntryPicksEntryHistory {
   event: Float
   points: Float
   total_points: Float
-  rank: String
-  rank_sort: String
+  rank: Float
+  rank_sort: Float
   overall_rank: Float
   bank: Float
   value: Float
@@ -281,6 +284,7 @@ type Event {
   most_selected: String
   most_transferred_in: String
   top_element: String
+  top_element_info: EventTopElementInfo
   transfers_made: Float
   most_captained: String
   most_vice_captained: String
@@ -328,6 +332,11 @@ type EventElementStats {
   ict_index: String
   total_points: Float
   in_dreamteam: Boolean
+}
+
+type EventTopElementInfo {
+  id: Float
+  points: Float
 }
 
 type GameSettings {
