@@ -26,6 +26,11 @@ export interface EntryHistory {
     rank?: number;
     [k: string]: any;
   }[];
-  chips?: any[];
+  chips?: {
+    name?: string;
+    time?: string;
+    event?: number;
+    [k: string]: any;
+  }[];
   [k: string]: any;
 }

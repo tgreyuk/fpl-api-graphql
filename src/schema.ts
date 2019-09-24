@@ -183,7 +183,13 @@ type Entry {
 type EntryHistory {
   current: [EntryHistoryCurrent]
   past: [EntryHistoryPast]
-  chips: [String]
+  chips: [EntryHistoryChip]
+}
+
+type EntryHistoryChip {
+  name: String
+  time: String
+  event: Float
 }
 
 type EntryHistoryCurrent {

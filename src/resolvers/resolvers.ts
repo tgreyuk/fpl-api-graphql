@@ -25,7 +25,7 @@ export const resolvers = {
   },
   Entry: {
     async history(obj, args, context) {
-      return entryHistoryLoader(args.id);
+      return entryHistoryLoader(args.event);
     },
     async picks(obj, args, context) {
       return entryPicksLoader(obj.id, args.event);
