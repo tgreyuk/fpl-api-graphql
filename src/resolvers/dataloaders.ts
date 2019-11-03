@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as DataLoader from 'dataloader';
+import * as humps from 'humps';
 
 import { BootstrapStatic } from '../interfaces/bootstrap-static.interface';
 import { ElementSummary } from '../interfaces/element-summary.interface';
@@ -44,13 +45,20 @@ export function entryTransfersLoader(id: number): Promise<EntryTransfers> {
   return dataLoader.load(`/entry/${id}/transfers/`);
 }
 
+export function eventLiveLoaderMany(events: number[]): Promise<EventLive[]> {
+  const keys = events.map(event => {
+    return `/event/${event}/live/`;
+  });
+  return dataLoader.loadMany(keys);
+}
+
 export function eventLiveLoader(event: number): Promise<EventLive> {
   return dataLoader.load(`/event/${event}/live/`);
 }
 
 export function leagueClassicLoader(
-  id,
-  pageNumber,
+  id: number,
+  pageNumber: number,
 ): Promise<LeaguesClassicStandings> {
   return dataLoader.load(
     `/leagues-classic-standings/${id}?ls-page=${pageNumber}/`,
@@ -59,11 +67,14 @@ export function leagueClassicLoader(
 
 const dataLoader = new DataLoader(keys => {
   return axios.all(
-    keys.map((key: string) => axios.get(key).then(response => response.data)),
+    keys.map((key: string) =>
+      axios.get(key).then(response => humps.camelizeKeys(response.data)),
+    ),
   );
 });
 
 // clear cache every 2 hours
+
 setInterval(() => {
   dataLoader.clearAll();
 }, 1000 * 60 * 60 * 2);

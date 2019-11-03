@@ -9,20 +9,20 @@ export interface EntryHistory {
   current?: {
     event?: number;
     points?: number;
-    total_points?: number;
+    totalPoints?: number;
     rank?: number;
-    rank_sort?: number;
-    overall_rank?: number;
+    rankSort?: number;
+    overallRank?: number;
     bank?: number;
     value?: number;
-    event_transfers?: number;
-    event_transfers_cost?: number;
-    points_on_bench?: number;
+    eventTransfers?: number;
+    eventTransfersCost?: number;
+    pointsOnBench?: number;
     [k: string]: any;
   }[];
   past?: {
-    season_name?: string;
-    total_points?: number;
+    seasonName?: string;
+    totalPoints?: number;
     rank?: number;
     [k: string]: any;
   }[];

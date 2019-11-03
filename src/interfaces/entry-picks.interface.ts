@@ -6,34 +6,34 @@
  */
 
 export interface EntryPicks {
-  active_chip?: null;
-  automatic_subs?: {
+  activeChip?: null;
+  automaticSubs?: {
     entry?: number;
-    element_in?: number;
-    element_out?: number;
+    elementIn?: number;
+    elementOut?: number;
     event?: number;
     [k: string]: any;
   }[];
-  entry_history?: {
+  entryHistory?: {
     event?: number;
     points?: number;
-    total_points?: number;
+    totalPoints?: number;
     rank?: number;
-    rank_sort?: number;
-    overall_rank?: number;
+    rankSort?: number;
+    overallRank?: number;
     bank?: number;
     value?: number;
-    event_transfers?: number;
-    event_transfers_cost?: number;
-    points_on_bench?: number;
+    eventTransfers?: number;
+    eventTransfersCost?: number;
+    pointsOnBench?: number;
     [k: string]: any;
   };
   picks?: {
     element?: number;
     position?: number;
     multiplier?: number;
-    is_captain?: boolean;
-    is_vice_captain?: boolean;
+    isCaptain?: boolean;
+    isViceCaptain?: boolean;
     [k: string]: any;
   }[];
   [k: string]: any;

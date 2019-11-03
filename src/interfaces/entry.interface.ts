@@ -7,38 +7,38 @@
 
 export interface Entry {
   id?: number;
-  joined_time?: string;
-  started_event?: number;
-  favourite_team?: null;
-  player_first_name?: string;
-  player_last_name?: string;
-  player_region_id?: number;
-  player_region_name?: string;
-  player_region_iso_code_short?: string;
-  player_region_iso_code_long?: string;
-  summary_overall_points?: number;
-  summary_overall_rank?: number;
-  summary_event_points?: number;
-  summary_event_rank?: number;
-  current_event?: number;
+  joinedTime?: string;
+  startedEvent?: number;
+  favouriteTeam?: null;
+  playerFirstName?: string;
+  playerLastName?: string;
+  playerRegionId?: number;
+  playerRegionName?: string;
+  playerRegionIsoCodeShort?: string;
+  playerRegionIsoCodeLong?: string;
+  summaryOverallPoints?: number;
+  summaryOverallRank?: number;
+  summaryEventPoints?: number;
+  summaryEventRank?: number;
+  currentEvent?: number;
   leagues?: {
     classic?: {
       id?: number;
       name?: string;
-      short_name?: string | null;
+      shortName?: string | null;
       created?: string;
       closed?: boolean;
       rank?: null;
-      max_entries?: null;
-      league_type?: string;
+      maxEntries?: null;
+      leagueType?: string;
       scoring?: string;
-      admin_entry?: null | number;
-      start_event?: number;
-      entry_rank?: number;
-      entry_last_rank?: number;
-      entry_can_leave?: boolean;
-      entry_can_admin?: boolean;
-      entry_can_invite?: boolean;
+      adminEntry?: null | number;
+      startEvent?: number;
+      entryRank?: number;
+      entryLastRank?: number;
+      entryCanLeave?: boolean;
+      entryCanAdmin?: boolean;
+      entryCanInvite?: boolean;
       [k: string]: any;
     }[];
     h2h?: any[];
@@ -46,8 +46,8 @@ export interface Entry {
   };
   name?: string;
   kit?: null;
-  last_deadline_bank?: number;
-  last_deadline_value?: number;
-  last_deadline_total_transfers?: number;
+  lastDeadlineBank?: number;
+  lastDeadlineValue?: number;
+  lastDeadlineTotalTransfers?: number;
   [k: string]: any;
 }

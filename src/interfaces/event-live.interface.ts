@@ -10,24 +10,24 @@ export interface EventLive {
     id?: number;
     stats?: {
       minutes?: number;
-      goals_scored?: number;
+      goalsScored?: number;
       assists?: number;
-      clean_sheets?: number;
-      goals_conceded?: number;
-      own_goals?: number;
-      penalties_saved?: number;
-      penalties_missed?: number;
-      yellow_cards?: number;
-      red_cards?: number;
+      cleanSheets?: number;
+      goalsConceded?: number;
+      ownGoals?: number;
+      penaltiesSaved?: number;
+      penaltiesMissed?: number;
+      yellowCards?: number;
+      redCards?: number;
       saves?: number;
       bonus?: number;
       bps?: number;
       influence?: string;
       creativity?: string;
       threat?: string;
-      ict_index?: string;
-      total_points?: number;
-      in_dreamteam?: boolean;
+      ictIndex?: string;
+      totalPoints?: number;
+      inDreamteam?: boolean;
       [k: string]: any;
     };
     explain?: {

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import chalk from 'chalk';
 import * as fs from 'fs-extra';
+import * as humps from 'humps';
 import { compileFromFile } from 'json-schema-to-typescript';
 import { schemify } from 'json-schemify';
 import * as jsosnfile from 'jsonfile';
@@ -49,11 +50,11 @@ async function write(name, data) {
     fs.mkdirSync(schemaDir);
   }
   const fixturePath = `${fixturesDir}/${name}.data.json`;
-  jsosnfile.writeFileSync(fixturePath, data);
+  jsosnfile.writeFileSync(fixturePath, humps.camelizeKeys(data));
   console.log(chalk.green(`[task:prepbuild] writing fixture ${fixturePath}`));
 
   const schemaPath = `${schemaDir}/${name}.schema.json`;
-  const schema = schemify(data);
+  const schema = schemify(humps.camelizeKeys(data));
   jsosnfile.writeFileSync(schemaPath, schema, {
     spaces: 2,
   });
