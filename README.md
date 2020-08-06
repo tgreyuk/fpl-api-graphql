@@ -1,8 +1,8 @@
 # fpl-api-graphql
 
-A [GraphQL](https://graphql.org/) node wrapper for the Fantasy Premier League (fantasy.premierleague.com) REST apis, updated for the 2019/20 season.
+## DEPRECATED
 
-[![npm](https://img.shields.io/npm/v/fpl-api-graphql.svg)](https://www.npmjs.com/package/fpl-api-graphql)
+Package no longer actively maintained.
 
 ## Installation
 

@@ -25,11 +25,7 @@
     "url": "https://github.com/tgreyuk/fpl-api-graphql/issues"
   },
   "homepage": "https://github.com/tgreyuk/fpl-api-graphql#readme",
-  "keywords": [
-    "fpl",
-    "api",
-    "graphql"
-  ],
+  "keywords": [],
   "devDependencies": {
     "@types/async": "^3.0.2",
     "@types/chalk": "^2.2.0",
